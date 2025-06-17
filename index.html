@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediReminder - Medicine Timing Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="loginForm" class="auth-form">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+            </div>
+            
+            <div id="registerForm" class="auth-form" style="display:none;">
+                <h2>Register</h2>
+                <input type="text" id="registerName" placeholder="Full Name" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button onclick="register()">Register</button>
+                <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" style="display:none;">
+        <header>
+            <h1>MediReminder</h1>
+            <div class="user-info">
+                <span id="userName"></span>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Add Medicine Form -->
+            <section class="add-medicine">
+                <h2>Add New Medicine</h2>
+                <form id="medicineForm">
+                    <input type="text" id="medicineName" placeholder="Medicine Name" required>
+                    <input type="text" id="dosage" placeholder="Dosage (e.g., 500mg)" required>
+                    <input type="time" id="medicineTime" required>
+                    <select id="frequency" required>
+                        <option value="">Select Frequency</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    <button type="submit">Add Medicine</button>
+                </form>
+            </section>
+
+            <!-- Today's Medicines -->
+            <section class="todays-medicines">
+                <h2>Today's Medicines</h2>
+                <div id="todaysList" class="medicines-list">
+                    <!-- Medicines will be populated here -->
+                </div>
+            </section>
+
+            <!-- All Medicines -->
+            <section class="all-medicines">
+                <h2>All Medicines</h2>
+                <div id="allMedicinesList" class="medicines-list">
+                    <!-- All medicines will be populated here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
